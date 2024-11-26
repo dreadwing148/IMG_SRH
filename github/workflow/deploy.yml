@@ -1,0 +1,22 @@
+name: Deploy to GitHub Pages 
+ 
+on: 
+  push: 
+    branches: 
+      - main  # Trigger the workflow on pushes to the 'main' branch 
+ 
+jobs: 
+  build-and-deploy: 
+    runs-on: ubuntu-latest 
+ 
+    steps: 
+      # Step 1: Check out the repository code 
+      - name: Checkout repository 
+        uses: actions/checkout@v3 
+ 
+      # Step 2: Deploy to GitHub Pages 
+      - name: Deploy to GitHub Pages 
+        uses: peaceiris/actions-gh-pages@v3 
+        with: 
+          github_token: ${{ secrets.IMG_SRH_21 }}  # GitHub's default token 
+          publish_dir: ./  # Directory containing the static site files 
